@@ -2,5 +2,6 @@
   <Project Path="Bai02/Bai02.csproj" />
   <Project Path="Bai03/Bai03.csproj" Id="505baf03-5b8e-4dac-bfef-443f592bec6a" />
   <Project Path="BaiTapTuLam01/BaiTapTuLam01.csproj" Id="37f60c7e-e95a-480a-8ed5-9d81fa5c5325" />
+  <Project Path="BaiTapTuLam02/BaiTapTuLam02.csproj" Id="60bdffee-6278-42f2-b7f7-fc5ac8d4af4e" />
   <Project Path="NetCoreLA7/NetCoreLA7.csproj" />
 </Solution>
