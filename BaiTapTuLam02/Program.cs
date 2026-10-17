@@ -1,7 +1,10 @@
+using BaiTapTuLam02.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Ltwlesson09Context>();
 
 var app = builder.Build();
 
