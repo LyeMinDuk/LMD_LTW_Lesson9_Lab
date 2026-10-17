@@ -1,0 +1,47 @@
+@model IEnumerable<MenuItem>
+@{
+    var curController = ViewData["Controller"]?.ToString();
+    var curAction = ViewData["Action"]?.ToString();
+}
+
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        @foreach (var m in Model)
+        {
+            var isActive = string.Equals(m.Controller, curController, StringComparison.OrdinalIgnoreCase);
+
+            if (!m.HasChildren)
+            {
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="@m.Controller" asp-action="Index" class="nav-link @(isActive ? "active" : "")">
+                        <i class="nav-icon @m.Icon"></i>
+                        <p>@m.Title</p>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item @(isActive ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(isActive ? "active" : "")">
+                        <i class="nav-icon @m.Icon"></i>
+                        <p>@m.Title <i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="@m.Controller" asp-action="Index"
+                               class="nav-link @(isActive && curAction == "Index" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i><p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="@m.Controller" asp-action="Create"
+                               class="nav-link @(isActive && curAction == "Create" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i><p>Thêm mới</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+</nav>

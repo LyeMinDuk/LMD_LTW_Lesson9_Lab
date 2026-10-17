@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Dashboard";
+
+    var boxes = new[]
+    {
+        (Value: "150", Sup: "",  Label: "New Orders",        Color: "bg-info",    Icon: "fas fa-shopping-bag"),
+        (Value: "53",  Sup: "%", Label: "Bounce Rate",       Color: "bg-success", Icon: "fas fa-chart-bar"),
+        (Value: "44",  Sup: "",  Label: "User Registrations",Color: "bg-warning", Icon: "fas fa-user-plus"),
+        (Value: "65",  Sup: "",  Label: "Unique Visitors",   Color: "bg-danger",  Icon: "fas fa-chart-pie"),
+    };
+}
+
+<div class="row">
+    @foreach (var b in boxes)
+    {
+        <div class="col-lg-3 col-6">
+            <div class="small-box @b.Color">
+                <div class="inner">
+                    <h3>@b.Value<sup style="font-size:20px">@b.Sup</sup></h3>
+                    <p>@b.Label</p>
+                </div>
+                <div class="icon"><i class="@b.Icon"></i></div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    }
+</div>
